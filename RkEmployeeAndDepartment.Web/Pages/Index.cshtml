@@ -1,0 +1,26 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Employee and Department Overview";
+}
+
+<h1>Employees</h1>
+@foreach (var employee in Model.Employees)
+{
+    <div>
+        <h3>@employee.FirstName @employee.LastName</h3>
+        <p>Position: @employee.Position</p>
+        <p>Department: @(employee.Department?.Name ?? "N/A")</p>
+        <hr />
+    </div>
+}
+
+<h1>Departments</h1>
+@foreach (var department in Model.Departments)
+{
+    <div>
+        <h3>@department.Name</h3>
+        <p>Location: @department.Location</p>
+        <hr />
+    </div>
+}
